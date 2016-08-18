@@ -4,23 +4,24 @@ public class Employee {
 
 	private int id;
 	private String username;
-	private String password; // TODO this must be encoded
+	private String password;
 	private String email;
 	private String firstName;
 	private String lastName;
-	private int id_subsidiary;
-	private int id_function;
+	private int idSubsidiary;
+	private int idFunction;
 
-	public Employee(int ID, String userName, String pass, String em, String fName, String lName, int id_sub,
-			int id_func) {
-		this.id = ID;
-		this.username = userName;
-		this.password = pass;
-		this.email = em;
-		this.firstName = fName;
-		this.lastName = lName;
-		this.id_subsidiary = id_sub;
-		this.id_function = id_func;
+	public Employee(int id, String username, String password, String email, String firstName, String lastName,
+			int idSubsidiary, int idFunction) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.email = email;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.idSubsidiary = idSubsidiary;
+		this.idFunction = idFunction;
 	}
 
 	public int getId() {
@@ -71,20 +72,20 @@ public class Employee {
 		this.lastName = lastName;
 	}
 
-	public int getId_subsidiary() {
-		return id_subsidiary;
+	public int getIdSubsidiary() {
+		return idSubsidiary;
 	}
 
-	public void setId_subsidiary(int id_subsidiary) {
-		this.id_subsidiary = id_subsidiary;
+	public void setIdSubsidiary(int idSubsidiary) {
+		this.idSubsidiary = idSubsidiary;
 	}
 
-	public int getId_function() {
-		return id_function;
+	public int getIdFunction() {
+		return idFunction;
 	}
 
-	public void setId_function(int id_function) {
-		this.id_function = id_function;
+	public void setIdFunction(int idFunction) {
+		this.idFunction = idFunction;
 	}
 
 }
