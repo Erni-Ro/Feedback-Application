@@ -26,7 +26,7 @@ public class LogInController {
 	@FXML
 	private Button signInButton;
 
-	private ApplicationContext ctx; 
+	private ApplicationContext ctx;
 	private EmployeeDao dao;
 
 	/**
@@ -38,12 +38,13 @@ public class LogInController {
 		this.ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 		this.dao = (EmployeeDao) ctx.getBean("edao");
 	}
-	
+
 	@FXML
-	public void enterButton(){
-		signInButton.defaultButtonProperty().bind(signInButton.focusedProperty());//make signIn button work on enter key
+	public void enterButton() {
+		// make signIn button work on enter key
+		signInButton.defaultButtonProperty().bind(signInButton.focusedProperty());
 	}
-	        
+
 	public boolean isValidUser(String username, String password) {
 		return dao.isEmployeeInDb(username, password);
 	}
