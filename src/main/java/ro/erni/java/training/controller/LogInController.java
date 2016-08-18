@@ -30,10 +30,14 @@ public class LogInController {
 	 * after the fxml file has been loaded.
 	 */
 	@FXML
-	private void initialize() {
+	public void initialize() {
 		this.ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 		this.dao = (EmployeeDao) ctx.getBean("edao");
 		signInButton.defaultButtonProperty().bind(signInButton.focusedProperty());//make signIn button work on enter key
+	}
+
+	public boolean isValidUser(String username, String password) {
+		return dao.isEmployeeInDb(username, password);
 	}
 
 	/**
@@ -41,13 +45,7 @@ public class LogInController {
 	 */
 	@FXML
 	private void handleSignIn(ActionEvent event) {
-		String username = usernameField.getText();
-		String password = passwordField.getText();
-		System.out.println("Button clicked: " + username + " " + password);
-
-		boolean isValidUser = dao.isEmployeeInDb(username, password);
-		if (isValidUser) {
-			MainApp.loggedUsername = username;
+		if (isValidUser(usernameField.getText(), passwordField.getText())) {
 			MainApp.showInbox();
 		} else {
 			// Show the error message.
