@@ -46,6 +46,6 @@ public class InboxController{
 	
 	@FXML
 	private void goToLogIn(ActionEvent event){
-		System.out.println("go to LogIn page");
+	 MainApp.showLogIn();
 	}
 }
