@@ -3,12 +3,16 @@ package ro.erni.java.training.controller;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.sun.glass.events.KeyEvent;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView.EditEvent;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.control.Alert.AlertType;
 import ro.erni.java.training.app.MainApp;
 import ro.erni.java.training.dao.EmployeeDao;
@@ -35,8 +39,14 @@ public class LogInController {
 		this.dao = (EmployeeDao) ctx.getBean("edao");
 	}
 
+	@FXML
+	public void enterButton() {
+		// make signIn button work on enter key
+		signInButton.defaultButtonProperty().bind(signInButton.focusedProperty());
+	}
+
 	public boolean isValidUser(String username, String password) {
-		return this.dao.isEmployeeInDb(username, password);
+		return dao.isEmployeeInDb(username, password);
 	}
 
 	/**
@@ -44,7 +54,12 @@ public class LogInController {
 	 */
 	@FXML
 	private void handleSignIn(ActionEvent event) {
-		if (isValidUser(usernameField.getText(), passwordField.getText())) {
+		String username = usernameField.getText();
+		String password = passwordField.getText();
+		System.out.println("Button clicked: " + username + " " + password);
+		boolean isValidUser = dao.isEmployeeInDb(username, password);
+		if (isValidUser) {
+			MainApp.loggedUsername = username;
 			MainApp.showInbox();
 		} else {
 			// Show the error message.
