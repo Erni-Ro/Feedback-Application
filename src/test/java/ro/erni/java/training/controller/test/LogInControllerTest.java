@@ -11,37 +11,42 @@ import ro.erni.java.training.app.MainApp;
 import ro.erni.java.training.controller.LogInController;
 
 public class LogInControllerTest {
-	LogInController log;
+	LogInController loginController;
 
 	@Before
 	public void initialize() {
-		this.log = new LogInController();
-		log.initialize();
+		this.loginController = new LogInController();
+		loginController.initialize();
 	}
 
 	@Test
-	public void testLogInControllerUsernameAndPasswordMatch() {
-		assertEquals(true, log.isValidUser("admin", "admin"));
+	public void logInControllerUsernameAndPasswordMatch() {
+		assertEquals(true, loginController.isValidUser("admin", "admin"));
+	}
+	@Test
+	public void logInControllerUsernameAndPasswordNotMatch() {
+		assertEquals(false, loginController.isValidUser("nouser", "nopass"));
 	}
 
-  @Test
-  public void appInitializeTest() throws InterruptedException {
-      Thread thread = new Thread(new Runnable() {
+	@Test
+	public void appInitializeTest() throws InterruptedException {
+		Thread thread = new Thread(new Runnable() {
 
-          @Override
-          public void run() {
-              new JFXPanel(); // Initializes the JavaFx Platform
-              Platform.runLater(new Runnable() {
+			@Override
+			public void run() {
+				new JFXPanel(); // Initializes the JavaFx Platform
+				Platform.runLater(new Runnable() {
 
-                  @Override
-                  public void run() {
-                      new MainApp().start(new Stage()); // Create and initialize app
-                  }
-              });
-          }
-      });
-      thread.start();// Initialize the thread
-      Thread.sleep(5000); // Time to use the app, with out this, the thread
-                              // will be killed before you can tell.
-  }
+					@Override
+					public void run() {
+						new MainApp().start(new Stage()); // Create and
+															// initialize app
+					}
+				});
+			}
+		});
+		thread.start();// Initialize the thread
+		Thread.sleep(5000); // Time to use the app, with out this, the thread
+							// will be killed before you can tell.
+	}
 }

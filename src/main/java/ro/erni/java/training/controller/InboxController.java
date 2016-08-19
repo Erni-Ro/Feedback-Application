@@ -1,4 +1,5 @@
 package ro.erni.java.training.controller;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -19,7 +20,6 @@ public class InboxController {
 	private Button printButton;
 	@FXML
 	private Button deleteButton;
-
 
 	@FXML
 	private void initialize() {
