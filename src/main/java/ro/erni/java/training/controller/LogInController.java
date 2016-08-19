@@ -24,7 +24,7 @@ public class LogInController {
 	private Button signInButton;
 
 	private ApplicationContext context;
-	private EmployeeDataAccessObject dataAccessObject;
+	private EmployeeDataAccessObject employeeDataAccessObject;
 
 	/**
 	 * Initializes the controller class. This method is automatically called
@@ -33,7 +33,7 @@ public class LogInController {
 	@FXML
 	public void initialize() {
 		this.context = new ClassPathXmlApplicationContext("applicationContext.xml");
-		this.dataAccessObject = (EmployeeDataAccessObject) context.getBean("employeeDataAccessObject");
+		this.employeeDataAccessObject = (EmployeeDataAccessObject) context.getBean("employeeDataAccessObject");
 	}
 
 	@FXML
@@ -43,7 +43,7 @@ public class LogInController {
 	}
 
 	public boolean isValidUser(String username, String password) {
-		return dataAccessObject.isEmployeeInDb(username, password);
+		return employeeDataAccessObject.isEmployeeInDb(username, password);
 	}
 
 	/**
@@ -54,7 +54,7 @@ public class LogInController {
 		String username = usernameField.getText();
 		String password = passwordField.getText();
 		System.out.println("Button clicked: " + username + " " + password);
-		boolean isValidUser = dataAccessObject.isEmployeeInDb(username, password);
+		boolean isValidUser = employeeDataAccessObject.isEmployeeInDb(username, password);
 		if (isValidUser) {
 			MainApp.loggedUsername = username;
 			MainApp.showInbox();

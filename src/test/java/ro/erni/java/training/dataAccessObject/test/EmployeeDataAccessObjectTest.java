@@ -11,22 +11,22 @@ import ro.erni.java.training.dataAccessObject.EmployeeDataAccessObject;
 
 public class EmployeeDataAccessObjectTest {
 	private ApplicationContext context;
-	private EmployeeDataAccessObject dataAccessObject;
+	private EmployeeDataAccessObject employeeDataAccessObject;
 
 	@Before
 	public void inintialize() {
 		this.context = new ClassPathXmlApplicationContext("applicationContext.xml");
-		this.dataAccessObject = (EmployeeDataAccessObject) context.getBean("employeeDataAccessObject");
+		this.employeeDataAccessObject = (EmployeeDataAccessObject) context.getBean("employeeDataAccessObject");
 	}
 
 	@Test
 	public void testPersistencyUsernameAndPasswordMatchdataAccessObjectbase() {
-		assertEquals(true, dataAccessObject.isEmployeeInDb("admin", "admin"));
+		assertEquals(true, employeeDataAccessObject.isEmployeeInDb("admin", "admin"));
 	}
 
 	@Test
 	public void testFalsePersistencyUsernameAndPasswordMatchdataAccessObjectbase() {
-		assertEquals(false, dataAccessObject.isEmployeeInDb("alca", "admin"));
+		assertEquals(false, employeeDataAccessObject.isEmployeeInDb("alca", "admin"));
 	}
 
 }
