@@ -1,18 +1,16 @@
 package ro.erni.java.training.controller;
 
+import java.io.IOException;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import com.sun.glass.events.KeyEvent;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ListView.EditEvent;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyCode;
 import javafx.scene.control.Alert.AlertType;
 import ro.erni.java.training.app.MainApp;
 import ro.erni.java.training.dao.EmployeeDao;
@@ -51,9 +49,11 @@ public class LogInController {
 
 	/**
 	 * Called when the user clicks signIn.
+	 * 
+	 * @throws IOException
 	 */
 	@FXML
-	private void handleSignIn(ActionEvent event) {
+	private void handleSignIn(ActionEvent event) throws IOException {
 		String username = usernameField.getText();
 		String password = passwordField.getText();
 		System.out.println("Button clicked: " + username + " " + password);

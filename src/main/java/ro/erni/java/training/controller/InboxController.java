@@ -1,5 +1,7 @@
 package ro.erni.java.training.controller;
 
+import java.io.IOException;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -46,7 +48,7 @@ public class InboxController {
 	}
 
 	@FXML
-	private void goToLogIn(ActionEvent event) {
+	private void goToLogIn(ActionEvent event) throws IOException {
 		MainApp.showLogIn();
 	}
 }
