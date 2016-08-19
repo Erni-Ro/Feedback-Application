@@ -6,7 +6,7 @@ import java.util.Map;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 
-public class EmployeeDataAccessObject {
+public class DataAccessObject {
 	private JdbcTemplate jdbcTemplate;
 
 	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {

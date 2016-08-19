@@ -3,7 +3,6 @@ package ro.erni.java.training.app;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

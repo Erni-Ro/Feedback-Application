@@ -7,16 +7,16 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import ro.erni.java.training.dataAccessObject.EmployeeDataAccessObject;
+import ro.erni.java.training.dataAccessObject.DataAccessObject;
 
 public class EmployeeDataAccessObjectTest {
 	private ApplicationContext context;
-	private EmployeeDataAccessObject employeeDataAccessObject;
+	private DataAccessObject employeeDataAccessObject;
 
 	@Before
 	public void inintialize() {
 		this.context = new ClassPathXmlApplicationContext("applicationContext.xml");
-		this.employeeDataAccessObject = (EmployeeDataAccessObject) context.getBean("employeeDataAccessObject");
+		this.employeeDataAccessObject = (DataAccessObject) context.getBean("employeeDataAccessObject");
 	}
 
 	@Test
