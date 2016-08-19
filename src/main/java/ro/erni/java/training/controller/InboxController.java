@@ -33,7 +33,7 @@ public class InboxController {
 
 	@FXML
 	private void goToSearchEmployee(ActionEvent event) {
-		MainApp.showSearchEmployee();
+		System.out.println("go to SearchEmployee");
 	}
 
 	@FXML

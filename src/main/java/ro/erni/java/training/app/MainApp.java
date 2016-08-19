@@ -67,40 +67,6 @@ public class MainApp extends Application {
 		}
 	}
 
-	public static void showSearchEmployee() {
-		try {
-			// Load person overview.
-			FXMLLoader loader = new FXMLLoader();
-			String pathToFxml = "src/main/java/ro/erni/java/training/view/SearchEmployee.fxml";
-			URL fxmlUrl = new File(pathToFxml).toURI().toURL();
-			loader.setLocation(fxmlUrl);
-			AnchorPane homePage = (AnchorPane) loader.load();
-
-			// Set person overview into the center of root layout.
-			rootLayout.setCenter(homePage);
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-	public static void showWriteFeedback() {
-		try {
-			// Load person overview.
-			FXMLLoader loader = new FXMLLoader();
-			String pathToFxml = "src/main/java/ro/erni/java/training/view/WriteFeedback.fxml";
-			URL fxmlUrl = new File(pathToFxml).toURI().toURL();
-			loader.setLocation(fxmlUrl);
-			AnchorPane homePage = (AnchorPane) loader.load();
-
-			// Set person overview into the center of root layout.
-			rootLayout.setCenter(homePage);
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
 	public static void showInbox() {
 		try {
 			// Load person overview.
@@ -117,19 +83,4 @@ public class MainApp extends Application {
 		}
 	}
 
-	public static void showAdminPage() {
-		try {
-			// Load person overview.
-			FXMLLoader loader = new FXMLLoader();
-			String pathToFxml = "src/main/java/ro/erni/java/training/view/AdminPage.fxml";
-			URL fxmlUrl = new File(pathToFxml).toURI().toURL();
-			loader.setLocation(fxmlUrl);
-			AnchorPane employeePage = (AnchorPane) loader.load();
-
-			// Set person overview into the center of root layout.
-			rootLayout.setCenter(employeePage);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
 }
