@@ -1,11 +1,12 @@
-package ro.erni.java.training.dao;
+package ro.erni.java.training.dataAccessObject;
 
 import java.util.List;
+
 import java.util.Map;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 
-public class EmployeeDao {
+public class EmployeeDataAccessObject {
 	private JdbcTemplate jdbcTemplate;
 
 	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {

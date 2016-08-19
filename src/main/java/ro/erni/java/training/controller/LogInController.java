@@ -1,21 +1,18 @@
 package ro.erni.java.training.controller;
 
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.sun.glass.events.KeyEvent;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ListView.EditEvent;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyCode;
 import javafx.scene.control.Alert.AlertType;
 import ro.erni.java.training.app.MainApp;
-import ro.erni.java.training.dao.EmployeeDao;
+import ro.erni.java.training.dataAccessObject.EmployeeDataAccessObject;
 
 public class LogInController {
 
@@ -26,8 +23,8 @@ public class LogInController {
 	@FXML
 	private Button signInButton;
 
-	private ApplicationContext ctx;
-	private EmployeeDao dao;
+	private ApplicationContext context;
+	private EmployeeDataAccessObject dataAccessObject;
 
 	/**
 	 * Initializes the controller class. This method is automatically called
@@ -35,8 +32,8 @@ public class LogInController {
 	 */
 	@FXML
 	public void initialize() {
-		this.ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
-		this.dao = (EmployeeDao) ctx.getBean("edao");
+		this.context = new ClassPathXmlApplicationContext("applicationContext.xml");
+		this.dataAccessObject = (EmployeeDataAccessObject) context.getBean("employeeDataAccessObject");
 	}
 
 	@FXML
@@ -46,7 +43,7 @@ public class LogInController {
 	}
 
 	public boolean isValidUser(String username, String password) {
-		return dao.isEmployeeInDb(username, password);
+		return dataAccessObject.isEmployeeInDb(username, password);
 	}
 
 	/**
@@ -57,7 +54,7 @@ public class LogInController {
 		String username = usernameField.getText();
 		String password = passwordField.getText();
 		System.out.println("Button clicked: " + username + " " + password);
-		boolean isValidUser = dao.isEmployeeInDb(username, password);
+		boolean isValidUser = dataAccessObject.isEmployeeInDb(username, password);
 		if (isValidUser) {
 			MainApp.loggedUsername = username;
 			MainApp.showInbox();
