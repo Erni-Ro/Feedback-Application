@@ -20,11 +20,11 @@ public class LogInControllerTest {
 	}
 
 	@Test
-	public void logInControllerUsernameAndPasswordMatch() {
+	public void logInControllerUsernameAndPasswordMatchTest() {
 		assertEquals(true, loginController.isValidUser("admin", "admin"));
 	}
 	@Test
-	public void logInControllerUsernameAndPasswordNotMatch() {
+	public void logInControllerUsernameAndPasswordNotMatchTest() {
 		assertEquals(false, loginController.isValidUser("nouser", "nopass"));
 	}
 
@@ -46,7 +46,7 @@ public class LogInControllerTest {
 			}
 		});
 		thread.start();// Initialize the thread
-		Thread.sleep(5000); // Time to use the app, with out this, the thread
+		Thread.sleep(2000); // Time to use the app, with out this, the thread
 							// will be killed before you can tell.
 	}
 }
