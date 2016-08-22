@@ -23,7 +23,8 @@ public class SearchEmployeeController {
 	private Button signOutButton;
 	@FXML
 	private Button writeFeedbackButton;
-	@FXML   Button searchButton;
+	@FXML
+	private Button searchButton;
 
 	private ApplicationContext context;
 	private EmployeeDataAccessObject employeeDataAccessObject;
@@ -49,14 +50,14 @@ public class SearchEmployeeController {
 	private void goToLogIn(ActionEvent event) {
 		MainApp.showLogIn();
 	}
-	
+
 	@FXML
 	private void goToWriteFeedback(ActionEvent event) {
 		MainApp.showWriteFeedback();
 	}
-	
+
 	@FXML
-	private void searchForEmployee(ActionEvent event){
+	private void searchForEmployee(ActionEvent event) {
 		System.out.println("Search Employee");
 	}
 }
