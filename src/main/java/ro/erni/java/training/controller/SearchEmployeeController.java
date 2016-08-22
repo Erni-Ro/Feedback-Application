@@ -1,5 +1,7 @@
 package ro.erni.java.training.controller;
 
+import java.io.IOException;
+
 import org.springframework.context.ApplicationContext;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -27,6 +29,7 @@ public class SearchEmployeeController {
 	private Button searchButton;
 
 	private ApplicationContext context;
+	@SuppressWarnings("unused")
 	private EmployeeDataAccessObject employeeDataAccessObject;
 
 	@FXML
@@ -37,22 +40,22 @@ public class SearchEmployeeController {
 	}
 
 	@FXML
-	private void goToInbox(ActionEvent event) {
+	private void goToInbox(ActionEvent event) throws IOException {
 		MainApp.showInbox();
 	}
 
 	@FXML
-	private void goToSentFeedback(ActionEvent event) {
+	private void goToSentFeedback(ActionEvent event) throws IOException {
 		MainApp.showSentFeedback();
 	}
 
 	@FXML
-	private void goToLogIn(ActionEvent event) {
+	private void goToLogIn(ActionEvent event) throws IOException {
 		MainApp.showLogIn();
 	}
 
 	@FXML
-	private void goToWriteFeedback(ActionEvent event) {
+	private void goToWriteFeedback(ActionEvent event) throws IOException {
 		MainApp.showWriteFeedback();
 	}
 

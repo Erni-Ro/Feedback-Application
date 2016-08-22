@@ -31,12 +31,12 @@ public class InboxController {
 	}
 
 	@FXML
-	private void goToSentFeedback(ActionEvent event) {
+	private void goToSentFeedback(ActionEvent event) throws IOException {
 		MainApp.showSentFeedback();
 	}
 
 	@FXML
-	private void goToSearchEmployee(ActionEvent event) {
+	private void goToSearchEmployee(ActionEvent event) throws IOException {
 		MainApp.showSearchEmployee();
 	}
 

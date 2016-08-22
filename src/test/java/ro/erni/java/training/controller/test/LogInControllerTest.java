@@ -1,6 +1,9 @@
 package ro.erni.java.training.controller.test;
 
 import static org.junit.Assert.*;
+
+import java.io.IOException;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -23,6 +26,7 @@ public class LogInControllerTest {
 	public void logInControllerUsernameAndPasswordMatchTest() {
 		assertEquals(true, loginController.isValidUser("admin", "admin"));
 	}
+
 	@Test
 	public void logInControllerUsernameAndPasswordNotMatchTest() {
 		assertEquals(false, loginController.isValidUser("nouser", "nopass"));
@@ -39,8 +43,11 @@ public class LogInControllerTest {
 
 					@Override
 					public void run() {
-						new MainApp().start(new Stage()); // Create and
-															// initialize app
+						try {
+							new MainApp().start(new Stage());
+						} catch (IOException e) {
+							e.printStackTrace();
+						} // Create and initialize app
 					}
 				});
 			}
