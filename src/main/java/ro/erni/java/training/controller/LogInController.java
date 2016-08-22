@@ -1,10 +1,8 @@
 package ro.erni.java.training.controller;
 
 import java.io.IOException;
-
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -13,7 +11,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import ro.erni.java.training.app.MainApp;
-import ro.erni.java.training.dao.EmployeeDao;
+import ro.erni.java.training.dataAccessObject.EmployeeDataAccessObject;
 
 public class LogInController {
 
@@ -24,8 +22,8 @@ public class LogInController {
 	@FXML
 	private Button signInButton;
 
-	private ApplicationContext ctx;
-	private EmployeeDao dao;
+	private ApplicationContext context;
+	private EmployeeDataAccessObject employeeDataAccessObject;
 
 	/**
 	 * Initializes the controller class. This method is automatically called
@@ -33,8 +31,8 @@ public class LogInController {
 	 */
 	@FXML
 	public void initialize() {
-		this.ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
-		this.dao = (EmployeeDao) ctx.getBean("edao");
+		this.context = new ClassPathXmlApplicationContext("applicationContext.xml");
+		this.employeeDataAccessObject = (EmployeeDataAccessObject) context.getBean("employeeDataAccessObject");
 	}
 
 	@FXML
@@ -44,7 +42,7 @@ public class LogInController {
 	}
 
 	public boolean isValidUser(String username, String password) {
-		return dao.isEmployeeInDb(username, password);
+		return employeeDataAccessObject.isEmployeeInDb(username, password);
 	}
 
 	/**
@@ -57,7 +55,7 @@ public class LogInController {
 		String username = usernameField.getText();
 		String password = passwordField.getText();
 		System.out.println("Button clicked: " + username + " " + password);
-		boolean isValidUser = dao.isEmployeeInDb(username, password);
+		boolean isValidUser = employeeDataAccessObject.isEmployeeInDb(username, password);
 		if (isValidUser) {
 			MainApp.loggedUsername = username;
 			MainApp.showInbox();
