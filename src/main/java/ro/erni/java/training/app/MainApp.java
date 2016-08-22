@@ -66,9 +66,4 @@ public class MainApp extends Application {
 
 		rootLayout.setCenter(employeePage);
 	}
-<<<<<<< HEAD
 }
-=======
-
-}
->>>>>>> feature3
