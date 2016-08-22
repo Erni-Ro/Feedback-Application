@@ -28,7 +28,7 @@ public class InboxController {
 
 	@FXML
 	private void goToSentFeedback(ActionEvent event) {
-		System.out.println("go to SentFeedback");
+		MainApp.showSentFeedback();
 	}
 
 	@FXML
@@ -39,5 +39,15 @@ public class InboxController {
 	@FXML
 	private void goToLogIn(ActionEvent event) {
 		MainApp.showLogIn();
+	}
+	
+	@FXML
+	private void printInbox(ActionEvent event){
+		System.out.println("Inbox is printing");
+	}
+	
+	@FXML 
+	private void deleteRecivedFeedback(ActionEvent event){
+		System.out.println("Feedback deleted");
 	}
 }

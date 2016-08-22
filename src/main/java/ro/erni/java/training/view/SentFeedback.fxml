@@ -8,13 +8,12 @@
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ro.erni.java.training.controller.SearchEmployeeController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ro.erni.java.training.controller.SentFeedbackController">
    <children>
       <SplitPane dividerPositions="0.21906354515050167" prefHeight="400.0" prefWidth="600.0">
         <items>
@@ -25,12 +24,12 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Button>
-                  <Button fx:id="sentFeedbackButton" layoutX="7.0" layoutY="118.0" mnemonicParsing="false" onAction="#goToSentFeedback" prefHeight="38.0" prefWidth="114.0" text="Sent feedback">
+                  <Button layoutX="7.0" layoutY="118.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="114.0" text="Sent feedback">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Button>
-                  <Button layoutX="7.0" layoutY="182.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="114.0" text="Search">
+                  <Button fx:id="searchEmployeeButton" layoutX="7.0" layoutY="182.0" mnemonicParsing="false" onAction="#goToSearchEmployee" prefHeight="35.0" prefWidth="114.0" text="Search">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -42,16 +41,13 @@
                   </Button>
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="393.0" prefWidth="464.0">
+          <AnchorPane layoutX="382.0" layoutY="6.0" minHeight="0.0" minWidth="0.0" prefHeight="17.0" prefWidth="26.0">
                <children>
-                  <TableView editable="true" fixedCellSize="-2.0" layoutY="60.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="340.0" prefWidth="464.0">
+                  <TableView editable="true" fixedCellSize="-2.0" layoutY="59.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="346.0" prefWidth="464.0">
                     <columns>
                       <TableColumn prefWidth="75.0" text="First Name" />
                       <TableColumn prefWidth="75.0" text="Last Name" />
-                        <TableColumn prefWidth="75.0" text="Username" />
-                        <TableColumn prefWidth="75.0" text="Email" />
-                        <TableColumn prefWidth="75.0" text="Role" />
-                        <TableColumn prefWidth="75.0" text="City" />
+                        <TableColumn prefWidth="291.0" text="Feedbacks" />
                     </columns>
                      <opaqueInsets>
                         <Insets />
@@ -63,19 +59,13 @@
                         <ColorAdjust brightness="-0.33" />
                      </effect>
                   </TableView>
-                  <ScrollBar layoutX="443.0" layoutY="85.0" orientation="VERTICAL" prefHeight="313.0" prefWidth="14.0" />
-                  <Button fx:id="writeFeedbackButton" layoutX="356.0" layoutY="27.0" mnemonicParsing="false" onAction="#goToWriteFeedback" prefHeight="25.0" prefWidth="108.0" text="Write feedback">
+                  <ScrollBar layoutX="443.0" layoutY="84.0" orientation="VERTICAL" prefHeight="314.0" prefWidth="14.0" />
+                  <Button fx:id="deleteButton" layoutX="404.0" layoutY="25.0" mnemonicParsing="false" onAction="#deleteSentFeedback" text="Delete">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <TextField layoutX="14.0" layoutY="14.0" />
-                  <Button fx:id="searchButton" layoutX="163.0" layoutY="14.0" mnemonicParsing="false" onAction="#searchForEmployee" prefHeight="25.0" prefWidth="67.0" text="Search">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Button>
-                  <Text layoutX="273.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logged as:" />
+                  <Text layoutX="273.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logged as:" wrappingWidth="69.13671875" />
                   <Label fx:id="loggedAs" layoutX="337.0" layoutY="6.0" prefHeight="17.0" prefWidth="122.0" textFill="#25bbe1" />
                </children>
             </AnchorPane>

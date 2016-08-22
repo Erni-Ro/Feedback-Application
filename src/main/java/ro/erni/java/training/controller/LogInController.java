@@ -1,6 +1,7 @@
 package ro.erni.java.training.controller;
 
 import org.springframework.context.ApplicationContext;
+
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,7 +11,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import ro.erni.java.training.app.MainApp;
-import ro.erni.java.training.dataAccessObject.DataAccessObject;
+import ro.erni.java.training.dataAccessObject.EmployeeDataAccessObject;
 
 public class LogInController {
 
@@ -22,7 +23,7 @@ public class LogInController {
 	private Button signInButton;
 
 	private ApplicationContext context;
-	private DataAccessObject employeeDataAccessObject;
+	private EmployeeDataAccessObject employeeDataAccessObject;
 
 	/**
 	 * Initializes the controller class. This method is automatically called
@@ -31,7 +32,7 @@ public class LogInController {
 	@FXML
 	public void initialize() {
 		this.context = new ClassPathXmlApplicationContext("applicationContext.xml");
-		this.employeeDataAccessObject = (DataAccessObject) context.getBean("employeeDataAccessObject");
+		this.employeeDataAccessObject = (EmployeeDataAccessObject) context.getBean("employeeDataAccessObject");
 	}
 
 	@FXML

@@ -116,6 +116,22 @@ public class MainApp extends Application {
 		}
 	}
 
+	public static void showSentFeedback() {
+		try {
+			// Load person overview.
+			FXMLLoader loader = new FXMLLoader();
+			String pathToFxml = "src/main/java/ro/erni/java/training/view/SentFeedback.fxml";
+			URL fxmlUrl = new File(pathToFxml).toURI().toURL();
+			loader.setLocation(fxmlUrl);
+			AnchorPane employeePage = (AnchorPane) loader.load();
+
+			// Set person overview into the center of root layout.
+			rootLayout.setCenter(employeePage);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
 	public static void showAdminPage() {
 		try {
 			// Load person overview.

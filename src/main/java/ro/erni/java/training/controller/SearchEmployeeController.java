@@ -1,6 +1,7 @@
 package ro.erni.java.training.controller;
 
 import org.springframework.context.ApplicationContext;
+
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import javafx.event.ActionEvent;
@@ -8,7 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import ro.erni.java.training.app.MainApp;
-import ro.erni.java.training.dataAccessObject.DataAccessObject;
+import ro.erni.java.training.dataAccessObject.EmployeeDataAccessObject;
 
 public class SearchEmployeeController {
 
@@ -22,14 +23,15 @@ public class SearchEmployeeController {
 	private Button signOutButton;
 	@FXML
 	private Button writeFeedbackButton;
+	@FXML   Button searchButton;
 
 	private ApplicationContext context;
-	private DataAccessObject employeeDataAccessObject;
+	private EmployeeDataAccessObject employeeDataAccessObject;
 
 	@FXML
 	private void initialize() {
 		this.context = new ClassPathXmlApplicationContext("applicationContext.xml");
-		this.employeeDataAccessObject = (DataAccessObject) context.getBean("employeeDataAccessObject");
+		this.employeeDataAccessObject = (EmployeeDataAccessObject) context.getBean("employeeDataAccessObject");
 		loggedAs.setText(MainApp.loggedUsername);
 	}
 
@@ -40,7 +42,7 @@ public class SearchEmployeeController {
 
 	@FXML
 	private void goToSentFeedback(ActionEvent event) {
-		System.out.println("show Sent Feedback");
+		MainApp.showSentFeedback();
 	}
 
 	@FXML
@@ -51,5 +53,10 @@ public class SearchEmployeeController {
 	@FXML
 	private void goToWriteFeedback(ActionEvent event) {
 		MainApp.showWriteFeedback();
+	}
+	
+	@FXML
+	private void searchForEmployee(ActionEvent event){
+		System.out.println("Search Employee");
 	}
 }
