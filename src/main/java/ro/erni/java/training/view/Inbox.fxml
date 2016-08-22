@@ -14,66 +14,67 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ro.erni.java.training.controller.InboxController">
-   <children>
-      <SplitPane dividerPositions="0.21906354515050167" prefHeight="400.0" prefWidth="600.0">
-        <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-               <children>
-                  <Button layoutX="7.0" layoutY="66.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="114.0" text="Inbox">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="sentFeedbackButton" layoutX="7.0" layoutY="126.0" mnemonicParsing="false" onAction="#goToSentFeedback" prefHeight="38.0" prefWidth="114.0" text="Sent feedback">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="searchEmployeeButton" layoutX="7.0" layoutY="191.0" mnemonicParsing="false" onAction="#goToSearchEmployee" prefHeight="35.0" prefWidth="114.0" text="Search">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="signOutButton" layoutX="7.0" layoutY="349.0" mnemonicParsing="false" onAction="#goToLogIn" prefHeight="35.0" prefWidth="114.0" text="Sign Out">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                  </Button>
-               </children>
-            </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="17.0" prefWidth="26.0">
-               <children>
-                  <Text layoutX="273.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logged as:" wrappingWidth="75.13671875" />
-                  <Label fx:id="loggedAs" layoutX="337.0" layoutY="6.0" prefHeight="17.0" prefWidth="122.0" textFill="#25bbe1" />
-                  <Button layoutX="404.0" layoutY="25.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="55.0" text="Delete">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font></Button>
-                  <TableView editable="true" fixedCellSize="-2.0" layoutY="65.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="334.0" prefWidth="464.0">
-                     <columns>
-                        <TableColumn prefWidth="75.0" text="First Name" />
-                        <TableColumn prefWidth="75.0" text="Last Name" />
-                        <TableColumn prefWidth="291.0" text="Feedbacks" />
-                     </columns>
-                     <cursor>
-                        <Cursor fx:constant="DISAPPEAR" />
-                     </cursor>
-                     <effect>
-                        <ColorAdjust brightness="-0.33" />
-                     </effect>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                  </TableView>
-                  <ScrollBar layoutX="453.0" layoutY="94.0" orientation="VERTICAL" prefHeight="314.0" prefWidth="14.0" />
-                  <Button fx:id="printButton" layoutX="337.0" layoutY="25.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="55.0" text="Print">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Button>
-               </children>
-            </AnchorPane>
-        </items>
-      </SplitPane>
-   </children>
+	<children>
+		<SplitPane dividerPositions="0.21906354515050167" prefHeight="400.0" prefWidth="600.0">
+			<items>
+				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+					<children>
+						<Button layoutX="7.0" layoutY="66.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="114.0" text="Inbox">
+							<font>
+								<Font name="System Bold" size="14.0" />
+							</font>
+						</Button>
+						<Button fx:id="sentFeedbackButton" layoutX="7.0" layoutY="126.0" mnemonicParsing="false" onAction="#goToSentFeedback" prefHeight="38.0" prefWidth="114.0" text="Sent feedback">
+							<font>
+								<Font name="System Bold" size="14.0" />
+							</font>
+						</Button>
+						<Button fx:id="searchEmployeeButton" layoutX="7.0" layoutY="191.0" mnemonicParsing="false" onAction="#goToSearchEmployee" prefHeight="35.0" prefWidth="114.0" text="Search">
+							<font>
+								<Font name="System Bold" size="14.0" />
+							</font>
+						</Button>
+						<Button fx:id="signOutButton" layoutX="7.0" layoutY="349.0" mnemonicParsing="false" onAction="#goToLogIn" prefHeight="35.0" prefWidth="114.0" text="Sign Out">
+							<font>
+								<Font name="System Bold" size="14.0" />
+							</font>
+						</Button>
+					</children>
+				</AnchorPane>
+				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="17.0" prefWidth="26.0">
+					<children>
+						<Text layoutX="273.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logged as:" wrappingWidth="75.13671875" />
+						<Label fx:id="loggedAs" layoutX="337.0" layoutY="6.0" prefHeight="17.0" prefWidth="122.0" textFill="#25bbe1" />
+						<Button fx:id="deleteButton" layoutX="404.0" layoutY="25.0" mnemonicParsing="false" onAction="#deleteRecivedFeedback" prefHeight="17.0" prefWidth="55.0" text="Delete">
+							<font>
+								<Font name="System Bold" size="12.0" />
+							</font>
+						</Button>
+						<TableView editable="true" fixedCellSize="-2.0" layoutY="65.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="334.0" prefWidth="464.0">
+							<columns>
+								<TableColumn prefWidth="75.0" text="First Name" />
+								<TableColumn prefWidth="75.0" text="Last Name" />
+								<TableColumn prefWidth="291.0" text="Feedbacks" />
+							</columns>
+							<cursor>
+								<Cursor fx:constant="DISAPPEAR" />
+							</cursor>
+							<effect>
+								<ColorAdjust brightness="-0.33" />
+							</effect>
+							<opaqueInsets>
+								<Insets />
+							</opaqueInsets>
+						</TableView>
+						<ScrollBar layoutX="453.0" layoutY="94.0" orientation="VERTICAL" prefHeight="314.0" prefWidth="14.0" />
+						<Button fx:id="printButton" layoutX="337.0" layoutY="25.0" mnemonicParsing="false" onAction="#printInbox" prefHeight="17.0" prefWidth="55.0" text="Print">
+							<font>
+								<Font name="System Bold" size="12.0" />
+							</font>
+						</Button>
+					</children>
+				</AnchorPane>
+			</items>
+		</SplitPane>
+	</children>
 </AnchorPane>
