@@ -28,5 +28,4 @@ public class EmployeeDataAccessObjectTest {
 	public void testFalsePersistencyUsernameAndPasswordMatchdataAccessObjectbase() {
 		assertEquals(false, employeeDataAccessObject.isEmployeeInDb("alca", "admin"));
 	}
-
 }

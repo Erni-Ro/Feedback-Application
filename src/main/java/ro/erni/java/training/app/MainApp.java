@@ -3,8 +3,6 @@ package ro.erni.java.training.app;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -25,10 +23,10 @@ public class MainApp extends Application {
 	@Override
 	public void start(Stage primaryStage) throws IOException {
 		GetPropertyValues properties = new GetPropertyValues();
+		primaryStage.setX(650);
+		primaryStage.setY(300);
 		properties.getPropValues();
 		this.primaryStage = primaryStage;
-		this.primaryStage.setTitle(GetPropertyValues.propertyList.get("MainApp_Title"));
-
 		initRootLayout();
 		showLogIn();
 	}
