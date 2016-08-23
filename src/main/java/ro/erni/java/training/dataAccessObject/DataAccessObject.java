@@ -14,8 +14,7 @@ public class DataAccessObject {
 	}
 
 	public boolean isEmployeeInDb(String username, String password) {
-		String query = "select username from employee where username = '" + username + "' and password = '" + password
-				+ "'";
+		String query = "select username from employee where username = '" + username + "' and password = '" + password + "'";
 		List<Map<String, Object>> list = jdbcTemplate.queryForList(query);
 		return list.size() > 0;
 	}

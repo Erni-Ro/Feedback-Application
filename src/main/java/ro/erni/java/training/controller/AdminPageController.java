@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import ro.erni.java.training.app.MainApp;
 import ro.erni.java.training.dataAccessObject.DataAccessObject;
+import ro.erni.java.training.dataAccessObject.EmployeeDataAccessObject;
 
 public class AdminPageController {
 	@FXML
@@ -18,12 +19,12 @@ public class AdminPageController {
 	@FXML
 	private Button signOutButton;
 	private ApplicationContext ctx;
-	private DataAccessObject adminDataAccessObject;
+	private EmployeeDataAccessObject adminDataAccessObject;
 
 	@FXML
 	private void initialize() {
 		this.ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
-		this.adminDataAccessObject = (DataAccessObject) ctx.getBean("employeeDataAccessObject");
+		this.adminDataAccessObject = (EmployeeDataAccessObject) ctx.getBean("employeeDataAccessObject");
 		loggedAs.setText(MainApp.loggedUsername);
 	}
 

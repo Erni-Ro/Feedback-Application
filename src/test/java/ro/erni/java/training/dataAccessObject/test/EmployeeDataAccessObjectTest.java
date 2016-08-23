@@ -29,5 +29,4 @@ public class EmployeeDataAccessObjectTest {
 	public void testFalsePersistencyUsernameAndPasswordMatchdataAccessObjectbase() throws SQLException {
 		assertEquals(false, empDataAccessObject.isEmployeeInDb("alca", "admin"));
 	}
-
 }

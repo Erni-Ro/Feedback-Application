@@ -23,10 +23,10 @@ public class MainApp extends Application {
 	@Override
 	public void start(Stage primaryStage) throws IOException {
 		GetPropertyValues properties = new GetPropertyValues();
+		primaryStage.setX(650);
+		primaryStage.setY(300);
 		properties.getPropValues();
 		this.primaryStage = primaryStage;
-		this.primaryStage.setTitle(GetPropertyValues.propertyList.get("MainApp_Title"));
-
 		initRootLayout();
 		showLogIn();
 	}
