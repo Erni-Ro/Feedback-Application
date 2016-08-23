@@ -3,7 +3,6 @@ package ro.erni.java.training.app;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -38,6 +37,7 @@ public class MainApp extends Application {
 			URL fxmlUrl = new File(path).toURI().toURL();
 			loader.setLocation(fxmlUrl);
 		} catch (IOException e) {
+			System.out.println("bla bla error");
 			e.printStackTrace();
 		}
 	}
@@ -60,8 +60,35 @@ public class MainApp extends Application {
 	}
 
 	public static void showInbox() throws IOException {
-
 		initializationLayout(GetPropertyValues.propertyList.get("MainApp_inboxPath"));
+		employeePage = loader.load();
+
+		rootLayout.setCenter(employeePage);
+	}
+
+	public static void showSearchEmployee() throws IOException {
+		initializationLayout(GetPropertyValues.propertyList.get("MainApp_searchEmployeePath"));
+		homePage = loader.load();
+
+		rootLayout.setCenter(homePage);
+	}
+
+	public static void showWriteFeedback() throws IOException {
+		initializationLayout(GetPropertyValues.propertyList.get("MainApp_writeFeedbackPath"));
+		homePage = loader.load();
+
+		rootLayout.setCenter(homePage);
+	}
+
+	public static void showSentFeedback() throws IOException {
+		initializationLayout(GetPropertyValues.propertyList.get("MainApp_sentFeedbackPath"));
+		employeePage = loader.load();
+
+		rootLayout.setCenter(employeePage);
+	}
+
+	public static void showAdminPage() throws IOException {
+		initializationLayout(GetPropertyValues.propertyList.get("MainApp_adminPagePath"));
 		employeePage = loader.load();
 
 		rootLayout.setCenter(employeePage);

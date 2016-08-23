@@ -3,6 +3,7 @@ package ro.erni.java.training.controller.test;
 import static org.junit.Assert.*;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -23,12 +24,12 @@ public class LogInControllerTest {
 	}
 
 	@Test
-	public void logInControllerUsernameAndPasswordMatchTest() {
+	public void logInControllerUsernameAndPasswordMatchTest() throws SQLException {
 		assertEquals(true, loginController.isValidUser("admin", "admin"));
 	}
 
 	@Test
-	public void logInControllerUsernameAndPasswordNotMatchTest() {
+	public void logInControllerUsernameAndPasswordNotMatchTest() throws SQLException {
 		assertEquals(false, loginController.isValidUser("nouser", "nopass"));
 	}
 
