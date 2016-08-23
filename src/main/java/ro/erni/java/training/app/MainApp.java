@@ -3,8 +3,6 @@ package ro.erni.java.training.app;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -39,6 +37,7 @@ public class MainApp extends Application {
 			URL fxmlUrl = new File(path).toURI().toURL();
 			loader.setLocation(fxmlUrl);
 		} catch (IOException e) {
+			System.out.println("bla bla error");
 			e.printStackTrace();
 		}
 	}

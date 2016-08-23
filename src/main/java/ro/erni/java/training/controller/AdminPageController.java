@@ -23,7 +23,7 @@ public class AdminPageController {
 	@FXML
 	private void initialize() {
 		this.ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
-		this.adminDataAccessObject = (DataAccessObject) ctx.getBean("eemployeeDataAccessObject");
+		this.adminDataAccessObject = (DataAccessObject) ctx.getBean("employeeDataAccessObject");
 		loggedAs.setText(MainApp.loggedUsername);
 	}
 

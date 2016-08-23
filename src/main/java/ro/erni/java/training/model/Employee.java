@@ -11,6 +11,16 @@ public class Employee {
 	private int idSubsidiary;
 	private int idFunction;
 
+	public Employee() {
+		super();
+	}
+
+	public Employee(String username, String password) {
+		super();
+		this.username = username;
+		this.password = password;
+	}
+
 	public Employee(int id, String username, String password, String email, String firstName, String lastName,
 			int idSubsidiary, int idFunction) {
 		super();

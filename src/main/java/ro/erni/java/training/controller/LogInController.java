@@ -1,6 +1,7 @@
 package ro.erni.java.training.controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -37,7 +38,7 @@ public class LogInController {
 		signInButton.defaultButtonProperty().bind(signInButton.focusedProperty());
 	}
 
-	public boolean isValidUser(String username, String password) {
+	public boolean isValidUser(String username, String password) throws SQLException {
 		return employeeDataAccessObject.isEmployeeInDb(username, password);
 	}
 	
@@ -51,18 +52,24 @@ public class LogInController {
 		String username = usernameField.getText();
 		String password = passwordField.getText();
 		System.out.println("Button clicked: " + username + " " + password);
-		boolean isValidUser = employeeDataAccessObject.isEmployeeInDb(username, password);
-		if (isValidUser) {
-			MainApp.loggedUsername = username;
-			MainApp.showInbox();
-		} else {
-			// Show the error message.
-			usernameField.setText("");
-			passwordField.setText("");
-			Alert alert = new Alert(AlertType.ERROR);
-			alert.setTitle("Invalid SignIn");
-			alert.setHeaderText("Incorrect user/password.");
-			alert.showAndWait();
+		try {
+			
+			boolean isValidUser = employeeDataAccessObject.isEmployeeInDb(username, password);
+			if (isValidUser) {
+				MainApp.loggedUsername = username;
+				MainApp.showInbox();
+			} else {
+				// Show the error message.
+				usernameField.setText("");
+				passwordField.setText("");
+				Alert alert = new Alert(AlertType.ERROR);
+				alert.setTitle("Invalid SignIn");
+				alert.setHeaderText("Incorrect user/password.");
+				alert.showAndWait();
+			}
+		} catch(SQLException f) {
+			f.printStackTrace();
 		}
+		
 	}
 }
