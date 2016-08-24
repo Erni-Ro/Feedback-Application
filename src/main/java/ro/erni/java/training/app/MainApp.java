@@ -13,7 +13,7 @@ import ro.erni.java.training.config.GetPropertyValues;
 
 public class MainApp extends Application {
 
-	private Stage primaryStage;
+	public static Stage primaryStage;
 	private static BorderPane rootLayout;
 	private static AnchorPane homePage;
 	private static AnchorPane employeePage;

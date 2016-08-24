@@ -1,12 +1,9 @@
 package ro.erni.java.training.controller.test;
 
 import static org.junit.Assert.*;
-
 import java.io.IOException;
-
 import org.junit.Before;
 import org.junit.Test;
-
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
 import javafx.stage.Stage;

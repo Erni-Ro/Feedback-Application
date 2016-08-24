@@ -1,66 +1,101 @@
 package ro.erni.java.training.controller;
 
 import java.io.IOException;
-
-import org.springframework.context.ApplicationContext;
-
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
+import java.io.PrintStream;
+import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.util.Callback;
+
+import org.springframework.beans.PropertyValue;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import ro.erni.java.training.app.MainApp;
 import ro.erni.java.training.dataAccessObject.EmployeeDataAccessObject;
+import ro.erni.java.training.model.Employee;
 
 public class SearchEmployeeController {
+    @FXML
+    private Label loggedAs;
+    @FXML
+    private Button sentFeedbackButton;
+    @FXML
+    private Button inboxButton;
+    @FXML
+    private Button signOutButton;
+    @FXML
+    private Button writeFeedbackButton;
+    @FXML
+    private Button searchButton;
+    @FXML
+    private TableView<Employee> tableView;
+    @FXML
+    private TableColumn<Employee, String> firstNameCol;
+    @FXML
+    private TableColumn<Employee, String> lastNameCol;
+    @FXML 
+    private TableColumn<Employee, String> usernameCol;
+    @FXML 
+    private TableColumn<Employee, String> emailCol;
+    @FXML 
+    private TableColumn<Employee, String> roleCol;
+    @FXML 
+    private TableColumn<Employee, String> cityCol;
+    
+    
+    private ApplicationContext context;
+    private EmployeeDataAccessObject employeeDao;
 
-	@FXML
-	private Label loggedAs;
-	@FXML
-	private Button sentFeedbackButton;
-	@FXML
-	private Button inboxButton;
-	@FXML
-	private Button signOutButton;
-	@FXML
-	private Button writeFeedbackButton;
-	@FXML
-	private Button searchButton;
+    @FXML
+    private void initialize() {
+        this.context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        this.employeeDao = (EmployeeDataAccessObject)this.context.getBean("employeeDataAccessObject");
+        this.loggedAs.setText(MainApp.loggedUsername);
+        List<Employee> employeeList = this.employeeDao.getAllEmployees();
+        System.out.println(employeeList);
+        this.firstNameCol.setCellValueFactory( new PropertyValueFactory<Employee, String>("firstName"));
+        this.lastNameCol.setCellValueFactory( new PropertyValueFactory<Employee, String>("lastName"));
+        this.usernameCol.setCellValueFactory(new PropertyValueFactory<Employee, String>("username"));
+        this.emailCol.setCellValueFactory(new PropertyValueFactory<Employee, String>("email"));
+        this.roleCol.setCellValueFactory(new PropertyValueFactory<Employee, String>("idFunction"));
+        this.cityCol.setCellValueFactory(new PropertyValueFactory<Employee, String>("idSubsidiary"));
+        ObservableList<Employee> items = FXCollections.observableArrayList();
+        for (Employee e : employeeList) {
+            items.add(e); new Employee(e.getId(), "", "", e.getEmail(), e.getFirstName(), e.getLastName(), 1, 5);
+        }
+        this.tableView.setItems(items);
+    }
 
-	private ApplicationContext context;
-	@SuppressWarnings("unused")
-	private EmployeeDataAccessObject employeeDataAccessObject;
+    @FXML
+    private void goToInbox(ActionEvent event) throws IOException {
+        MainApp.showInbox();
+    }
 
-	@FXML
-	private void initialize() {
-		this.context = new ClassPathXmlApplicationContext("applicationContext.xml");
-		this.employeeDataAccessObject = (EmployeeDataAccessObject) context.getBean("employeeDataAccessObject");
-		loggedAs.setText(MainApp.loggedUsername);
-	}
+    @FXML
+    private void goToSentFeedback(ActionEvent event) throws IOException {
+    	
+        MainApp.showSentFeedback();
+    }
 
-	@FXML
-	private void goToInbox(ActionEvent event) throws IOException {
-		MainApp.showInbox();
-	}
+    @FXML
+    private void goToLogIn(ActionEvent event) throws IOException {
+        MainApp.showLogIn();
+    }
 
-	@FXML
-	private void goToSentFeedback(ActionEvent event) throws IOException {
-		MainApp.showSentFeedback();
-	}
-
-	@FXML
-	private void goToLogIn(ActionEvent event) throws IOException {
-		MainApp.showLogIn();
-	}
-
-	@FXML
-	private void goToWriteFeedback(ActionEvent event) throws IOException {
-		MainApp.showWriteFeedback();
-	}
-
-	@FXML
-	private void searchForEmployee(ActionEvent event) {
-		System.out.println("Search Employee");
-	}
+    @FXML
+    private void goToWriteFeedback(ActionEvent event) throws IOException {
+        MainApp.showWriteFeedback();
+    }
+    
+    @FXML
+    private void searchForEmployee(ActionEvent event) {
+        System.out.println("Search Employee");
+    }
 }

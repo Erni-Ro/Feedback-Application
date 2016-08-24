@@ -1,9 +1,6 @@
 package ro.erni.java.training.controller;
 
 import java.io.IOException;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -44,14 +41,14 @@ public class InboxController {
 	private void goToLogIn(ActionEvent event) throws IOException {
 		MainApp.showLogIn();
 	}
-	
+
 	@FXML
-	private void printInbox(ActionEvent event){
+	private void printInbox(ActionEvent event) {
 		System.out.println("Inbox is printing");
 	}
-	
-	@FXML 
-	private void deleteRecivedFeedback(ActionEvent event){
+
+	@FXML
+	private void deleteRecivedFeedback(ActionEvent event) {
 		System.out.println("Feedback deleted");
 	}
 }

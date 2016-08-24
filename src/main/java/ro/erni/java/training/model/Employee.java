@@ -10,6 +10,11 @@ public class Employee {
 	private String lastName;
 	private int idSubsidiary;
 	private int idFunction;
+    
+	
+	public Employee() {
+		super();
+	}
 
 	public Employee(int id, String username, String password, String email, String firstName, String lastName,
 			int idSubsidiary, int idFunction) {

@@ -1,22 +1,20 @@
 package ro.erni.java.training.dataAccessObject.test;
 
 import static org.junit.Assert.*;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import ro.erni.java.training.dataAccessObject.DataAccessObject;
+import ro.erni.java.training.dataAccessObject.EmployeeDataAccessObject;
 
 public class EmployeeDataAccessObjectTest {
 	private ApplicationContext context;
-	private DataAccessObject employeeDataAccessObject;
+	private EmployeeDataAccessObject employeeDataAccessObject;
 
 	@Before
 	public void inintialize() {
 		this.context = new ClassPathXmlApplicationContext("applicationContext.xml");
-		this.employeeDataAccessObject = (DataAccessObject) context.getBean("employeeDataAccessObject");
+		this.employeeDataAccessObject = (EmployeeDataAccessObject) context.getBean("employeeDataAccessObject");
 	}
 
 	@Test
