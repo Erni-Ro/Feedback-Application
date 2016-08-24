@@ -59,11 +59,12 @@ public class LogInController {
 			usernameField.setText("");
 			passwordField.setText("");
 			Alert alert = new Alert(AlertType.ERROR);
-			alert.getDialogPane().setPrefSize(200, 115);
-			alert.getDialogPane().setMaxSize(200, 115);
-			alert.getDialogPane().setMinSize(200, 115);
-			alert.setY(450);
-			alert.setX(850);
+			alert.getDialogPane().setPrefSize(250, 120);
+			alert.getDialogPane().setMinSize(250, 120);
+			alert.setY(MainApp.primaryStage.getY() + MainApp.primaryStage.getHeight() / 2
+					- alert.getDialogPane().getPrefHeight() / 2);
+			alert.setX(MainApp.primaryStage.getX() + MainApp.primaryStage.getWidth() / 2
+					- alert.getDialogPane().getPrefWidth() / 2);
 			alert.setTitle("Invalid SignIn");
 			alert.setHeaderText("Incorrect user/password.");
 			alert.showAndWait();

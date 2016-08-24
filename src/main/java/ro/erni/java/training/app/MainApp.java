@@ -13,7 +13,7 @@ import ro.erni.java.training.config.GetPropertyValues;
 
 public class MainApp extends Application {
 
-	private Stage primaryStage;
+	public static Stage primaryStage;
 	private static BorderPane rootLayout;
 	private static AnchorPane homePage;
 	private static AnchorPane employeePage;
@@ -23,11 +23,9 @@ public class MainApp extends Application {
 	@Override
 	public void start(Stage primaryStage) throws IOException {
 		GetPropertyValues properties = new GetPropertyValues();
-		primaryStage.setX(650);
-		primaryStage.setY(300);
 		properties.getPropValues();
-		this.primaryStage = primaryStage;
-		this.primaryStage.setTitle(GetPropertyValues.propertyList.get("MainApp_Title"));
+		MainApp.primaryStage = primaryStage;
+		MainApp.primaryStage.setTitle(GetPropertyValues.propertyList.get("MainApp_Title"));
 
 		initRootLayout();
 		showLogIn();
