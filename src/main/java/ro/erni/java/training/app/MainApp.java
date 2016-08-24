@@ -27,6 +27,8 @@ public class MainApp extends Application {
 		primaryStage.setY(300);
 		properties.getPropValues();
 		this.primaryStage = primaryStage;
+		this.primaryStage.setTitle(GetPropertyValues.propertyList.get("MainApp_Title"));
+
 		initRootLayout();
 		showLogIn();
 	}
