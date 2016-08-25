@@ -92,5 +92,10 @@ public class Employee {
 	public void setIdFunction(int idFunction) {
 		this.idFunction = idFunction;
 	}
+	
+	@Override
+	public String toString() {
+		return id + " " + firstName + " " + lastName;
+	}
 
 }

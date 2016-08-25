@@ -21,4 +21,9 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 		<property name="jdbcTemplate" ref="jdbcTemplate"></property>
 	</bean>
 
+<bean id="feedbackDataAccessObject"
+		class="ro.erni.java.training.dataAccessObject.FeedbackDataAccessObject">
+		<property name="jdbcTemplate" ref="jdbcTemplate"></property>
+	</bean>
+	
 </beans>  

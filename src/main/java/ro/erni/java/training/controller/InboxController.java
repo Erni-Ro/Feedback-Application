@@ -24,7 +24,7 @@ public class InboxController {
 
 	@FXML
 	private void initialize() {
-		loggedAs.setText(MainApp.loggedUsername);
+		loggedAs.setText(MainApp.loggedUser.getFirstName()+ " " + MainApp.loggedUser.getLastName());
 	}
 
 	@FXML

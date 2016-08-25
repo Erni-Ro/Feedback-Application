@@ -1,7 +1,6 @@
 package ro.erni.java.training.controller;
 
 import java.io.IOException;
-import java.io.PrintStream;
 import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,9 +11,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.util.Callback;
-
-import org.springframework.beans.PropertyValue;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import ro.erni.java.training.app.MainApp;
@@ -57,7 +53,7 @@ public class SearchEmployeeController {
     private void initialize() {
         this.context = new ClassPathXmlApplicationContext("applicationContext.xml");
         this.employeeDao = (EmployeeDataAccessObject)this.context.getBean("employeeDataAccessObject");
-        this.loggedAs.setText(MainApp.loggedUsername);
+        loggedAs.setText(MainApp.loggedUser.getFirstName()+ " " + MainApp.loggedUser.getLastName());
         List<Employee> employeeList = this.employeeDao.getAllEmployees();
         System.out.println(employeeList);
         this.firstNameCol.setCellValueFactory( new PropertyValueFactory<Employee, String>("firstName"));
@@ -91,7 +87,8 @@ public class SearchEmployeeController {
 
     @FXML
     private void goToWriteFeedback(ActionEvent event) throws IOException {
-        MainApp.showWriteFeedback();
+    	Employee selectedEmployee = tableView.getSelectionModel().getSelectedItem();
+        MainApp.showWriteFeedback(selectedEmployee);
     }
     
     @FXML

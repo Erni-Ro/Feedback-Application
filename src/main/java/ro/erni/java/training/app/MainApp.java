@@ -10,6 +10,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import ro.erni.java.training.config.GetPropertyValues;
+import ro.erni.java.training.controller.WriteFeedbackController;
+import ro.erni.java.training.model.Employee;
 
 public class MainApp extends Application {
 
@@ -17,14 +19,14 @@ public class MainApp extends Application {
 	private static BorderPane rootLayout;
 	private static AnchorPane homePage;
 	private static AnchorPane employeePage;
-	public static String loggedUsername;
+//	public static String loggedUsername;
+	public static Employee loggedUser;
 	static FXMLLoader loader;
+	
 
 	@Override
 	public void start(Stage primaryStage) throws IOException {
 		GetPropertyValues properties = new GetPropertyValues();
-		primaryStage.setX(650);
-		primaryStage.setY(300);
 		properties.getPropValues();
 		this.primaryStage = primaryStage;
 		initRootLayout();
@@ -72,11 +74,13 @@ public class MainApp extends Application {
 		rootLayout.setCenter(homePage);
 	}
 
-	public static void showWriteFeedback() throws IOException {
+	public static void showWriteFeedback(Employee selectedEmployee) throws IOException {
 		initializationLayout(GetPropertyValues.propertyList.get("MainApp_writeFeedbackPath"));
 		homePage = loader.load();
-
 		rootLayout.setCenter(homePage);
+		
+		WriteFeedbackController controller = loader.getController();
+		controller.initData(selectedEmployee);
 	}
 
 	public static void showSentFeedback() throws IOException {

@@ -33,12 +33,13 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="393.0" prefWidth="464.0">
                <children>
-                  <TableView editable="true" fixedCellSize="-2.0" layoutY="60.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="340.0" prefWidth="464.0">
+                  <TableView fx:id="tableView" editable="true" fixedCellSize="-2.0" layoutY="60.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="340.0" prefWidth="464.0">
                     <columns>
-                      <TableColumn prefWidth="107.0" text="First Name" />
-                      <TableColumn prefWidth="110.0" text="Last Name" />
-                        <TableColumn prefWidth="100.0" text="Nr. of feedbacks" />
-                        <TableColumn prefWidth="124.0" text="Contains" />
+                      <TableColumn fx:id="senderCol" prefWidth="81.0" text="Sender" />
+                      <TableColumn fx:id="receiverCol" prefWidth="71.0" text="Receiver" />
+                        <TableColumn fx:id="rockAtCol" prefWidth="107.0" text="RocksAt" />
+                        <TableColumn fx:id="goodAtCol" prefWidth="111.0" text="GoodAt" />
+                        <TableColumn fx:id="improveOnCol" prefWidth="87.0" text="ImproveOn" />
                     </columns>
                      <opaqueInsets>
                         <Insets />

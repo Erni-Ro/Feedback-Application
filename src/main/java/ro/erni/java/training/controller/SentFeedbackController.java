@@ -26,14 +26,13 @@ public class SentFeedbackController {
 	private Button deleteButton;
 
 	private ApplicationContext ctx;
-	@SuppressWarnings("unused")
 	private EmployeeDataAccessObject dataAccessObject;
 
 	@FXML
 	private void initialize() {
 		this.ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 		this.dataAccessObject = (EmployeeDataAccessObject) ctx.getBean("employeeDataAccessObject");
-		loggedAs.setText(MainApp.loggedUsername);
+		loggedAs.setText(MainApp.loggedUser.getFirstName()+ " " + MainApp.loggedUser.getLastName());
 	}
 
 	@FXML

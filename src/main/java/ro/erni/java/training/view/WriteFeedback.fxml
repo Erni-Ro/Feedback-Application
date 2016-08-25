@@ -19,9 +19,9 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <TextArea layoutX="111.0" layoutY="105.0" prefHeight="57.0" prefWidth="442.0" />
-      <TextArea layoutX="111.0" layoutY="192.0" prefHeight="57.0" prefWidth="442.0" />
-      <TextArea layoutX="111.0" layoutY="284.0" prefHeight="57.0" prefWidth="442.0" />
+      <TextArea fx:id="rocksAtTextArea" layoutX="111.0" layoutY="105.0" prefHeight="57.0" prefWidth="442.0" />
+      <TextArea fx:id="goodAtTextArea" layoutX="111.0" layoutY="192.0" prefHeight="57.0" prefWidth="442.0" />
+      <TextArea fx:id="improveOnTextArea" layoutX="111.0" layoutY="284.0" prefHeight="57.0" prefWidth="442.0" />
       <Text layoutX="122.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My colleague is also good at:" wrappingWidth="248.13671875">
          <font>
             <Font name="System Bold" size="18.0" />
