@@ -52,7 +52,6 @@ public class MainApp extends Application {
 	}
 
 	public static void showLogIn() throws IOException {
-
 		initializationLayout(GetPropertyValues.propertyList.get("MainApp_logInPath"));
 		homePage = loader.load();
 

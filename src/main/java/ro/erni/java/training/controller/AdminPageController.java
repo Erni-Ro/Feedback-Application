@@ -10,7 +10,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import ro.erni.java.training.app.MainApp;
-import ro.erni.java.training.dataAccessObject.DataAccessObject;
 import ro.erni.java.training.dataAccessObject.EmployeeDataAccessObject;
 
 public class AdminPageController {

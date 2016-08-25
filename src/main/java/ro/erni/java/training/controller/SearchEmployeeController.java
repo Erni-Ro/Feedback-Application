@@ -57,6 +57,7 @@ public class SearchEmployeeController {
 	@FXML
 	private void goToWriteFeedback(ActionEvent event) throws IOException {
 		MainApp.showWriteFeedback();
+		System.out.println("write feedback");
 	}
 
 	@FXML

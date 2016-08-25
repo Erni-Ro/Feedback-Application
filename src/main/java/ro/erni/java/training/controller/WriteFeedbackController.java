@@ -1,7 +1,12 @@
 package ro.erni.java.training.controller;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.sql.SQLException;
+
+import javax.sql.rowset.serial.SerialException;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,7 +15,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.text.Text;
 import ro.erni.java.training.app.MainApp;
-import ro.erni.java.training.dataAccessObject.WriteFeedbackDataAccessObject;
+import ro.erni.java.training.dataAccessObject.EmployeeDataAccessObject;
 
 public class WriteFeedbackController {
 
@@ -33,8 +38,13 @@ public class WriteFeedbackController {
 	@FXML
 	private CheckBox checkBox;
 
+	private ApplicationContext context;
+	private EmployeeDataAccessObject wrFeedbDataAcessObject;
+	
 	@FXML
-	private void initialize() {
+	public void initialize() {
+		this.context = new ClassPathXmlApplicationContext("applicationContext.xml");
+		this.wrFeedbDataAcessObject = (EmployeeDataAccessObject) context.getBean("employeeDataAccessObject");
 	}
 
 	@FXML
@@ -48,9 +58,11 @@ public class WriteFeedbackController {
 	}
 
 	@FXML
-	private void sendFeedback(ActionEvent event) throws FileNotFoundException {
+	private void sendFeedback(ActionEvent event) throws SerialException, IOException, SQLException {
 		System.out.println("send");
-		WriteFeedbackDataAccessObject fe = new WriteFeedbackDataAccessObject();
-		fe.saveFeedback();
+		wrFeedbDataAcessObject.saveFeedback(question1.getText(), answer1.getText(), checkBox.isSelected());
+		wrFeedbDataAcessObject.saveFeedback(question2.getText(), answer2.getText(), checkBox.isSelected());
+		wrFeedbDataAcessObject.saveFeedback(question3.getText(), answer3.getText(), checkBox.isSelected());
 	}
+
 }

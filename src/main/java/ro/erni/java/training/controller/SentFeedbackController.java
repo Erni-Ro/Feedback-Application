@@ -13,7 +13,7 @@ import javafx.scene.control.Label;
 import ro.erni.java.training.app.MainApp;
 import ro.erni.java.training.dataAccessObject.EmployeeDataAccessObject;
 
-public class SentFeedbackController {
+class SentFeedbackController {
 	@FXML
 	private Label loggedAs;
 	@FXML

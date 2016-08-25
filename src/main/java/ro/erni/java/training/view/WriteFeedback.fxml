@@ -14,25 +14,25 @@
             <Font name="System Bold" size="29.0" />
          </font>
       </Text>
-      <Text layoutX="122.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My colleague rocks at:" wrappingWidth="248.13671875">
+      <Text fx:id="question1" layoutX="122.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My colleague rocks at:" wrappingWidth="248.13671875">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <TextArea layoutX="111.0" layoutY="105.0" prefHeight="57.0" prefWidth="442.0" />
-      <TextArea layoutX="111.0" layoutY="192.0" prefHeight="57.0" prefWidth="442.0" />
-      <TextArea layoutX="111.0" layoutY="284.0" prefHeight="57.0" prefWidth="442.0" />
-      <Text layoutX="122.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My colleague is also good at:" wrappingWidth="248.13671875">
+      <TextArea fx:id="answer1" layoutX="111.0" layoutY="105.0" prefHeight="57.0" prefWidth="442.0" />
+      <TextArea fx:id="answer2" layoutX="111.0" layoutY="192.0" prefHeight="57.0" prefWidth="442.0" />
+      <TextArea fx:id="answer3" layoutX="111.0" layoutY="284.0" prefHeight="57.0" prefWidth="442.0" />
+      <Text fx:id="question2" layoutX="122.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My colleague is also good at:" wrappingWidth="248.13671875">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <Text layoutX="122.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My colleague could improve on:" wrappingWidth="273.13671875">
+      <Text fx:id="question3" layoutX="122.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My colleague could improve on:" wrappingWidth="273.13671875">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <CheckBox layoutX="111.0" layoutY="356.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="156.0" text="Send as anonymous" textFill="#089bda">
+      <CheckBox fx:id="checkBox" layoutX="111.0" layoutY="356.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="156.0" text="Send as anonymous" textFill="#089bda">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

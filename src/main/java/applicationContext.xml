@@ -20,5 +20,10 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 		class="ro.erni.java.training.dataAccessObject.EmployeeDataAccessObject">
 		<property name="jdbcTemplate" ref="jdbcTemplate"></property>
 	</bean>
+	
+	<bean id="writeFeedbackDataAccessObject"
+		class="ro.erni.java.training.dataAccessObject.WriteFeedbackDataAccessObject">
+		<property name="jdbcTemplate" ref="jdbcTemplate"></property>
+	</bean>
 
 </beans>  
