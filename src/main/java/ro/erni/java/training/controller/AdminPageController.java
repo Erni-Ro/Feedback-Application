@@ -67,7 +67,6 @@ public class AdminPageController {
 		setCellTooltip(goodAtCol);
 		setCellTooltip(improveOnCol);
 		
-		
 	}
 
 	private void setCellTooltip(TableColumn<Feedback, String> rockAtCol) {
