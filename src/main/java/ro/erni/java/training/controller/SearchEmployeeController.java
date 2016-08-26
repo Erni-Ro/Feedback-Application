@@ -60,11 +60,11 @@ public class SearchEmployeeController {
         this.lastNameCol.setCellValueFactory( new PropertyValueFactory<Employee, String>("lastName"));
         this.usernameCol.setCellValueFactory(new PropertyValueFactory<Employee, String>("username"));
         this.emailCol.setCellValueFactory(new PropertyValueFactory<Employee, String>("email"));
-        this.roleCol.setCellValueFactory(new PropertyValueFactory<Employee, String>("idFunction"));
-        this.cityCol.setCellValueFactory(new PropertyValueFactory<Employee, String>("idSubsidiary"));
+        this.roleCol.setCellValueFactory(new PropertyValueFactory<Employee, String>("city"));
+        this.cityCol.setCellValueFactory(new PropertyValueFactory<Employee, String>("function"));
         ObservableList<Employee> items = FXCollections.observableArrayList();
         for (Employee e : employeeList) {
-            items.add(e); new Employee(e.getId(), "", "", e.getEmail(), e.getFirstName(), e.getLastName(), 1, 5);
+            items.add(e); 
         }
         this.tableView.setItems(items);
     }

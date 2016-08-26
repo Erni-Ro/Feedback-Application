@@ -35,11 +35,11 @@
                <children>
                   <TableView fx:id="tableView" editable="true" fixedCellSize="-2.0" layoutY="60.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="340.0" prefWidth="464.0">
                     <columns>
-                      <TableColumn fx:id="senderCol" prefWidth="81.0" text="Sender" />
-                      <TableColumn fx:id="receiverCol" prefWidth="71.0" text="Receiver" />
-                        <TableColumn fx:id="rockAtCol" prefWidth="107.0" text="RocksAt" />
-                        <TableColumn fx:id="goodAtCol" prefWidth="111.0" text="GoodAt" />
-                        <TableColumn fx:id="improveOnCol" prefWidth="87.0" text="ImproveOn" />
+                      <TableColumn fx:id="senderCol" prefWidth="109.0" text="Sender" />
+                      <TableColumn fx:id="receiverCol" prefWidth="117.0" text="Receiver" />
+                        <TableColumn fx:id="rockAtCol" prefWidth="84.0" text="RocksAt" />
+                        <TableColumn fx:id="goodAtCol" prefWidth="72.0" text="GoodAt" />
+                        <TableColumn fx:id="improveOnCol" prefWidth="75.0" text="ImproveOn" />
                     </columns>
                      <opaqueInsets>
                         <Insets />
@@ -51,7 +51,7 @@
                         <ColorAdjust brightness="-0.33" />
                      </effect>
                   </TableView>
-                  <TextField layoutX="14.0" layoutY="14.0" />
+                  <TextField fx:id="searchTextField" layoutX="14.0" layoutY="14.0" />
                   <Button layoutX="163.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="67.0" text="Search">
                      <font>
                         <Font name="System Bold" size="12.0" />

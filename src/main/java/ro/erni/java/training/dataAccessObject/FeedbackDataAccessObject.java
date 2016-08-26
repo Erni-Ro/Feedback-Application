@@ -16,20 +16,19 @@ public class FeedbackDataAccessObject {
 
 	public int saveFeedback(Feedback f) {
 		String sql = "INSERT INTO feedback(id_sender, id_receiver, anonym, rocks, good, improve) VALUES(?,?,?,?,?,?)";
-		int result = jdbcTemplate.update(sql, new Object[] { f.getSenderId(), f.getReceiverId(), f.isAnonymous(),
-				f.getRocks(), f.getGood(), f.getImprove() });
+		int result = jdbcTemplate.update(sql, new Object[] { f.getSenderId(), f.getReceiverId(), f.isAnonymous(), f.getRocks(), f.getGood(), f.getImprove() });
 		return result;
 	}
 
 	public List<Feedback> getAllFeedbacks() {
-				String query = "select f.id_feed, f.id_sender, se.firstname, f.id_receiver, re.firstname, f.anonym, f.rocks, f.good, f.improve from feedback f INNER JOIN employee se on se.id_emp = f.id_sender INNER JOIN employee re on re.id_emp = f.id_receiver";
+				String query = "select f.id_feed, f.id_sender, se.firstname, f.id_receiver, re.firstname, f.anonym, f.rocks, f.good, f.improve, se.lastname, re.lastname from feedback f INNER JOIN employee se on se.id_emp = f.id_sender INNER JOIN employee re on re.id_emp = f.id_receiver";
 		List list = this.jdbcTemplate.query(query, new RowMapper<Feedback>() {
 			public Feedback mapRow(ResultSet rs, int rowNumber) throws SQLException {
 				Feedback feedback = new Feedback();
 				feedback.setSenderId(rs.getInt(2));
-				feedback.setSenderName(rs.getString(3));
+				feedback.setSenderName(rs.getString(3)+ " "+rs.getString(10));
 				feedback.setReceiverId(rs.getInt(4));
-				feedback.setReceiverName(rs.getString(5));
+				feedback.setReceiverName(rs.getString(5)+" "+rs.getString(11));
 				feedback.setAnonymous(rs.getBoolean(6));
 				feedback.setRocks(rs.getString(7));
 				feedback.setGood(rs.getString(8));

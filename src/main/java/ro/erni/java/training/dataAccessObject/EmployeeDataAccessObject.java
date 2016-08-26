@@ -35,8 +35,6 @@ public class EmployeeDataAccessObject {
         		  employee.setEmail(rs.getString(4));
         		  employee.setFirstName(rs.getString(5));
         		  employee.setLastName(rs.getString(6));
-        		  employee.setIdSubsidiary(rs.getInt(7));
-        		  employee.setIdFunction(rs.getInt(8));
         		  return employee;
         	}
         });
@@ -45,9 +43,8 @@ public class EmployeeDataAccessObject {
 
     public List<Employee> getAllEmployees() {
     	
-        String query = "select e.id_emp, e.username, e.password, e.email, e.firstname, e.lastname, e.id_subsidiary, su.city, e.id_function, fu.role from employee e INNER JOIN subsidiary su on su.id_subsidiary=e.id_subsidiary INNER JOIN employee_function fu on fu.id_function=e.id_function";
-//    	  String query ="select * from employee";
-    	  List list = this.jdbcTemplate.query(query,new  RowMapper<Employee>(){
+        String query = "select e.id_emp, e.username, e.password, e.email, e.firstname, e.lastname, su.city,fu.role, e.id_subsidiary, e.id_function from employee e INNER JOIN subsidiary su on su.id_subsidiary=e.id_subsidiary INNER JOIN employee_function fu on fu.id_function=e.id_function";
+    	  List<Employee> list = this.jdbcTemplate.query(query,new  RowMapper<Employee>(){
         	public Employee mapRow(ResultSet rs, int rowNumber) throws SQLException{
         		Employee employee = new Employee();
         		  employee.setId(rs.getInt(1));
@@ -56,8 +53,8 @@ public class EmployeeDataAccessObject {
         		  employee.setEmail(rs.getString(4));
         		  employee.setFirstName(rs.getString(5));
         		  employee.setLastName(rs.getString(6));
-        		  employee.setIdSubsidiary(rs.getInt(7));
-        		  employee.setIdFunction(rs.getInt(8));
+        		  employee.setFunction(rs.getString(7));
+        		  employee.setCity(rs.getString(8));
         		  return employee;
         	}
         });
